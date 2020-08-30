@@ -204,8 +204,8 @@ func (c *Client) Request(method, endpoint string, params url.Values, data, respo
 }
 
 // GetContacts method
-func (c *Client) GetContacts(params url.Values) ([]Contact, error) {
+func (c *Client) GetContacts(params url.Values) (ContactResponse, error) {
 	r := ContactResponse{}
 	err := c.Request("GET", "contact", params, nil, &r)
-	return r.Data, err
+	return r, err
 }
